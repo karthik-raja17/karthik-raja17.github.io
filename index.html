@@ -463,17 +463,19 @@
         }
 
         .radar-dot::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-green);
-            animation: radarPulse 2s infinite ease-out;
-            opacity: 0.8;
-        }
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -9.8px;   /* half of height (16 / 2) */
+    margin-left: -9.6px;  /* half of width (16 / 2) */
+    border-radius: 50%;
+    border: 2px solid var(--accent-green);
+    animation: radarPulse 2s infinite ease-out;
+    opacity: 0.8;
+}
 
         @keyframes radarPulse {
             0% { transform: scale(0.5); opacity: 1; }
