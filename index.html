@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karthik Raja KANDAVEL – AI & Data Science Engineer</title>
+    <meta name="description" content="AI & Data Science Engineer specializing in productionizing research. MILP optimization, RAG systems, MLOps pipelines." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,22 +21,26 @@
             --bg-secondary: #11141a;
             --bg-card: #161a22;
             --bg-card-hover: #1c2130;
+            --bg-modal: #0d1117;
             --text-primary: #f0f4fa;
             --text-secondary: #a0aec0;
             --text-muted: #64748b;
             --accent-blue: #3b82f6;
             --accent-cyan: #06b6d4;
             --accent-purple: #8b5cf6;
-            --accent-pink: #ec4899;
+            --accent-green: #10b981;
             --border-color: rgba(255,255,255,0.06);
             --glow-blue: rgba(59,130,246,0.4);
             --glow-cyan: rgba(6,182,212,0.3);
-            --glow-purple: rgba(139,92,246,0.3);
         }
 
-        /* ── RESET & BASE ── */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
@@ -43,6 +48,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
         a { color: inherit; text-decoration: none; }
 
         /* ── SCROLL PROGRESS BAR ── */
@@ -51,350 +57,829 @@
             top: 0; left: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan), var(--accent-purple));
-            z-index: 9999;
+            z-index: 10000;
             width: 0%;
-            transition: width 0.1s;
             box-shadow: 0 0 10px var(--glow-blue);
         }
 
         /* ── ANIMATED BACKGROUND ── */
         .bg-gradient {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            background:
                 radial-gradient(ellipse at 20% 20%, rgba(59,130,246,0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.06) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 60%),
                 var(--bg-primary);
             animation: bgPulse 15s ease-in-out infinite;
         }
+
         @keyframes bgPulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.8; }
         }
 
-        /* ── FLOATING PARTICLES ── */
         .particles {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; pointer-events: none; overflow: hidden;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
         }
+
         .particle {
-            position: absolute; width: 2px; height: 2px;
-            background: var(--accent-cyan); border-radius: 50%;
-            opacity: 0; animation: floatUp linear infinite;
+            position: absolute;
+            width: 2px; height: 2px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatUp linear infinite;
         }
+
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10%, 90% { opacity: 0.6; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        /* ── CONTAINER ── */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
         /* ── NAVIGATION ── */
         nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(10,12,15,0.8); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color); padding: 1rem 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10,12,15,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            transition: all 0.3s;
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .nav-logo {
-            font-weight: 700; font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 1.2rem;
             background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
         .nav-links a {
-            color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
-            transition: color 0.3s; position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
         }
+
         .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0;
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
             width: 0; height: 2px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
             transition: width 0.3s;
         }
+
         .nav-links a:hover { color: var(--text-primary); }
         .nav-links a:hover::after { width: 100%; }
 
-        /* ── HERO SECTION ── */
+        /* ── HERO ── */
         .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            padding-top: 80px; position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
         }
+
         .hero-content { max-width: 900px; }
+
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
-            padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem;
-            color: var(--accent-blue); font-weight: 500; margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16,185,129,0.1);
+            border: 1px solid rgba(16,185,129,0.25);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 0.6s ease-out;
         }
+
+        .hero-badge i { font-size: 0.6rem; }
+
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1;
-            letter-spacing: -0.03em; margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
             animation: fadeInUp 0.6s ease-out 0.1s both;
         }
+
         .gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, #60a5fa 30%, #22d3ee 60%, #a78bfa 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-size: 200% 200%; animation: gradientShift 8s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
         }
+
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
+
         .hero .tagline {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--text-secondary);
-            font-weight: 400; margin-bottom: 1.5rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 0.6s ease-out 0.2s both;
         }
+
         .hero-bio {
-            font-size: 1.1rem; color: var(--text-muted); max-width: 650px;
-            margin-bottom: 2rem; line-height: 1.7;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
             animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
         /* ── METRIC BADGES ── */
         .metric-badges {
-            display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
             animation: fadeInUp 0.6s ease-out 0.4s both;
         }
+
         .metric-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 50px; padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 500;
-            color: var(--text-secondary); transition: all 0.3s ease; cursor: default;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: default;
         }
+
         .metric-badge:hover {
-            background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.3);
-            transform: translateY(-2px); box-shadow: 0 4px 20px rgba(59,130,246,0.15);
+            background: rgba(59,130,246,0.08);
+            border-color: rgba(59,130,246,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(59,130,246,0.15);
         }
+
         .metric-badge i { color: var(--accent-cyan); font-size: 0.75rem; }
         .metric-badge .count { color: var(--text-primary); font-weight: 700; }
 
         /* ── CTA BUTTONS ── */
         .cta-group {
-            display: flex; flex-wrap: wrap; gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             animation: fadeInUp 0.6s ease-out 0.5s both;
         }
+
         .btn {
-            display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;
-            padding: 0.85rem 2rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem;
-            transition: all 0.3s ease; border: 1px solid transparent; font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59,130,246,0.3);
         }
+
         .btn-primary:hover {
-            transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59,130,246,0.4);
         }
+
         .btn-secondary {
-            background: rgba(255,255,255,0.05); color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
             border-color: rgba(255,255,255,0.1);
         }
+
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
-        /* ── SECTION STYLES ── */
+        /* ── SECTIONS ── */
         section { padding: 5rem 0; }
+
         .section-header { margin-bottom: 3rem; }
+
         .section-label {
-            display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.15em; color: var(--accent-cyan); margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
         }
+
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700;
-            letter-spacing: -0.02em; margin-bottom: 0.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
-        .section-subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
 
         /* ── TECH STACK ── */
         .tech-section {
-            background: var(--bg-secondary); border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
+
         .tech-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
+
         .tech-category {
-            background: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
         }
+
         .tech-category:hover {
-            border-color: rgba(59,130,246,0.2); transform: translateY(-4px);
+            border-color: rgba(59,130,246,0.2);
+            transform: translateY(-4px);
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
+
         .tech-category h4 {
-            font-size: 1rem; font-weight: 600; color: var(--accent-blue);
-            margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        /* Highlight the ML category specifically */
-        .tech-category.highlight { border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.02); }
-        .tech-category.highlight h4 { color: var(--accent-purple); }
-        
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+        .tech-category.ml-dl h4 { color: var(--accent-purple); }
+        .tech-category.ai-nlp h4 { color: var(--accent-cyan); }
+        .tech-category.programming h4 { color: var(--accent-blue); }
+        .tech-category.cloud h4 { color: var(--accent-green); }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
         .tech-tag {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-            padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.8rem;
-            color: var(--text-secondary); transition: all 0.2s;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
         }
+
         .tech-tag:hover {
-            background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3);
+            background: rgba(59,130,246,0.1);
+            border-color: rgba(59,130,246,0.3);
             color: var(--text-primary);
         }
 
         /* ── PROJECTS ── */
         .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
+
         .project-card {
-            background: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; cursor: pointer; display: flex; flex-direction: column;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
         }
+
         .project-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
             background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-cyan), transparent);
-            opacity: 0; transition: opacity 0.4s; z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 2;
         }
+
         .project-card:hover {
-            transform: translateY(-8px); border-color: rgba(59,130,246,0.3);
+            transform: translateY(-8px);
+            border-color: rgba(59,130,246,0.2);
             box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(59,130,246,0.08);
         }
+
         .project-card:hover::before { opacity: 1; }
-        
+
         .project-image {
-            width: 100%; height: 220px; position: relative; overflow: hidden;
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
             background: linear-gradient(135deg, #1a1f2e, #0f1419);
         }
+
         .project-image img {
-            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
+
         .project-card:hover .project-image img { transform: scale(1.05); }
+
         .project-image-overlay {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(to top, var(--bg-card) 0%, transparent 50%);
         }
-        .project-body { padding: 1.75rem; flex-grow: 1; display: flex; flex-direction: column; }
+
+        .project-body { padding: 1.75rem; }
+
         .project-category {
-            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.1em; color: var(--accent-cyan); margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
         }
+
         .project-title {
-            font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);
-        }
-        .project-desc {
-            color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;
-            margin-bottom: 1.25rem; flex-grow: 1;
-        }
-        .project-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-        .project-metric {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-            padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
             color: var(--text-primary);
         }
-        .project-metric i { color: var(--accent-purple); margin-right: 0.3rem; font-size: 0.7rem; }
-        .project-links { margin-top: auto; }
 
-        /* ── MODALS ── */
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-metric {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .project-metric i {
+            color: var(--accent-purple);
+            margin-right: 0.3rem;
+            font-size: 0.7rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+            transition: color 0.2s;
+        }
+
+        .project-link:hover { color: var(--accent-cyan); }
+
+        .btn-learn-more {
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.25);
+            color: var(--accent-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-learn-more:hover {
+            background: rgba(59,130,246,0.2);
+            transform: translateY(-1px);
+        }
+
+        /* ── MODAL ── */
         .modal-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-            background: rgba(10, 12, 15, 0.85); backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 1rem;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .modal-content {
-            background: var(--bg-card); border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 20px; width: 100%; max-width: 750px; max-height: 90vh;
-            overflow-y: auto; padding: 2.5rem; position: relative;
-            transform: translateY(20px) scale(0.95); transition: transform 0.3s ease;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59,130,246,0.1);
+            background: var(--bg-modal);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.6);
         }
-        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 0;
+            position: relative;
+        }
+
         .modal-close {
-            position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.05);
-            border: none; color: var(--text-secondary); font-size: 1.2rem;
-            width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
         }
-        .modal-close:hover { background: rgba(255,255,255,0.1); color: white; transform: rotate(90deg); }
-        .modal-header { margin-bottom: 1.5rem; }
-        .modal-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
-        .modal-desc { color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin-bottom: 2rem; }
-        .modal-tech { margin-bottom: 2rem; }
-        .modal-tech h4 { font-size: 1rem; color: var(--text-primary); margin-bottom: 0.8rem; }
-        
+
+        .modal-close:hover {
+            background: rgba(239,68,68,0.1);
+            border-color: rgba(239,68,68,0.3);
+            color: #ef4444;
+        }
+
+        .modal-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            padding-right: 3rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .modal-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tech {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tech h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .modal-tech-tag {
+            background: rgba(59,130,246,0.08);
+            border: 1px solid rgba(59,130,246,0.15);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .modal-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-metric {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .modal-metric i { color: var(--accent-purple); margin-right: 0.4rem; }
+
+        .modal-footer {
+            padding: 0 2rem 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .modal-link.github {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+        }
+
+        .modal-link.github:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .modal-link.primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+        }
+
+        .modal-link.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(59,130,246,0.3);
+        }
+
         /* ── EXPERIENCE ── */
-        .experience-section { background: var(--bg-secondary); border-top: 1px solid var(--border-color); }
-        .timeline { position: relative; padding-left: 2rem; }
+        .experience-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
         .timeline::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
             background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), transparent);
         }
-        .timeline-item { position: relative; padding-bottom: 3rem; animation: fadeInUp 0.6s ease-out both; }
-        .timeline-item:last-child { padding-bottom: 1rem; }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+        }
+
         .timeline-item::before {
-            content: ''; position: absolute; left: -2rem; top: 0.5rem; width: 12px; height: 12px;
-            border-radius: 50%; background: var(--accent-blue); border: 3px solid var(--bg-secondary);
-            box-shadow: 0 0 0 3px var(--accent-blue); transform: translateX(-5px);
+            content: '';
+            position: absolute;
+            left: -2rem; top: 0.5rem;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: 3px solid var(--bg-secondary);
+            box-shadow: 0 0 0 3px var(--accent-blue);
+            transform: translateX(-4px);
         }
+
         .timeline-header {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
         }
-        .timeline-title { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
-        .timeline-company { color: var(--accent-cyan); font-weight: 500; font-size: 1rem; }
-        .timeline-date { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; background: rgba(255,255,255,0.05); padding: 0.2rem 0.8rem; border-radius: 20px;}
-        .timeline-location { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem; }
-        .timeline-desc { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; }
-        .timeline-desc ul { list-style: none; padding: 0; }
-        .timeline-desc li { position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem; }
-        .timeline-desc li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-blue); }
+
+        .timeline-title { font-size: 1.1rem; font-weight: 700; }
+        .timeline-company { color: var(--accent-cyan); font-weight: 500; font-size: 0.95rem; }
+        .timeline-date { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+        .timeline-location { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-desc li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
 
         /* ── FOOTER ── */
-        footer { border-top: 1px solid var(--border-color); padding: 3rem 0; text-align: center; }
-        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-        .footer-social { display: flex; gap: 1.5rem; }
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
         .footer-social a {
-            width: 45px; height: 45px; border-radius: 50%; background: var(--bg-card);
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; color: var(--text-secondary); transition: all 0.3s;
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
         }
+
         .footer-social a:hover {
-            background: rgba(59,130,246,0.1); border-color: var(--accent-blue);
-            color: var(--accent-blue); transform: translateY(-3px); box-shadow: 0 5px 20px rgba(59,130,246,0.2);
+            background: rgba(59,130,246,0.1);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(59,130,246,0.2);
         }
-        .footer-text { color: var(--text-muted); font-size: 0.9rem; }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
 
         /* ── ANIMATIONS ── */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero { padding-top: 100px; min-height: auto; padding-bottom: 4rem; }
-            .projects-grid, .tech-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
             .timeline { padding-left: 1.5rem; }
             .timeline-item::before { left: -1.5rem; }
-            .cta-group, .metric-badges { justify-content: center; }
-            .modal-content { padding: 1.5rem; }
+            .modal-content { max-height: 90vh; }
+            .modal-header, .modal-body, .modal-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
         }
 
-        /* ── SCROLLBAR ── */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+
+        body.modal-open { overflow: hidden; }
     </style>
 </head>
 <body>
@@ -415,6 +900,7 @@
                 <li><a href="#tech">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -424,47 +910,49 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <i class="fas fa-circle" style="color: #10b981; text-shadow: 0 0 8px #10b981;"></i>
-                    AI/ML Engineer · Productionizing Research
+                    <i class="fas fa-circle"></i>
+                    Open to AI/ML Engineering Roles
                 </div>
                 
-                <h1>
-                    <span class="gradient-text">Karthik Raja KANDAVEL</span>
-                </h1>
+                <h1><span class="gradient-text">Karthik Raja KANDAVEL</span></h1>
+                
+                <p class="tagline">AI & Data Science Engineer · Productionizing Research</p>
                 
                 <p class="hero-bio">
-                    I build production-grade AI systems that bridge the gap between theoretical research and real-world ROI. 
-                    Currently a Data Science Master's candidate at EURECOM, I design cloud-native architectures, 
-                    MILP optimizers, intelligent RAG systems, and MLOps pipelines for the energy and legal tech domains.
+                    I build production-grade AI systems that bridge the gap between research and real-world impact. 
+                    Currently a Data Science Master's student at EURECOM, I design cloud-native architectures, 
+                    MILP optimizers, MLOps pipelines, and retrieval-augmented systems for energy and legal domains.
                 </p>
 
-                <!-- BUSINESS IMPACT HOOK -->
                 <div class="metric-badges">
-                    <span class="metric-badge">
+                    <span class="metric-badge" title="Helped Faradae prove spot-market profitability and convinced the client to switch from fixed to spot contracts">
                         <i class="fas fa-coins"></i>
-                        <span class="count" data-target="77.69">€0</span> net savings in 1mo
+                        <span class="count" data-target="77.69">€0</span> net savings
                     </span>
-                    <span class="metric-badge">
+                    <span class="metric-badge" title="Enabled smarter battery charging decisions, directly increasing arbitrage profit">
                         <i class="fas fa-chart-line"></i>
-                        <span class="count" data-target="45.1">0</span>% MAE reduction
+                        <span class="count" data-target="45">0</span>% MAE reduction
                     </span>
-                    <span class="metric-badge">
-                        <i class="fas fa-stopwatch"></i>
+                    <span class="metric-badge" title="Saved Faradae's legal team hundreds of hours on contract analysis, enabling faster deal closures">
+                        <i class="fas fa-clock"></i>
                         <span class="count" data-target="2">0</span>hr → 15s review
                     </span>
-                    <span class="metric-badge">
-                        <i class="fas fa-gavel"></i>
+                    <span class="metric-badge" title="Production-ready legal AI with 100% absent-clause refusal, giving lawyers confidence to rely on the system">
+                        <i class="fas fa-check-circle"></i>
                         <span class="count" data-target="95.6">0</span>% citation accuracy
                     </span>
-                    <span class="metric-badge">
+                    <span class="metric-badge" title="Hands-off production system running every minute without human intervention, eliminating manual oversight">
                         <i class="fas fa-bolt"></i>
-                        <span class="count" data-target="99.9">0</span>% system reliability
+                        <span class="count" data-target="99.9">0</span>% reliability
                     </span>
                 </div>
 
                 <div class="cta-group">
                     <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-project-diagram"></i> View Business Impact
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="#" class="btn btn-secondary" onclick="alert('Add your resume PDF link here!')">
+                        <i class="fas fa-file-pdf"></i> Download Resume
                     </a>
                     <a href="https://github.com/karthik-raja17" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> GitHub
@@ -482,72 +970,59 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <span class="section-label">Technical Arsenal</span>
-                <h2 class="section-title">Core Competencies</h2>
-                <p class="section-subtitle">Bridging the gap between heavy mathematical research and scalable production code.</p>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">The tools and frameworks I use to turn research into production systems.</p>
             </div>
 
             <div class="tech-grid">
-                <!-- ML / DL (Highlighted) -->
-                <div class="tech-category highlight animate-on-scroll">
-                    <h4><i class="fas fa-brain"></i> ML, DL & Optimization</h4>
+                <!-- ML/DL FIRST - Most Important -->
+                <div class="tech-category ml-dl animate-on-scroll">
+                    <h4><i class="fas fa-brain"></i> ML/DL & Optimization</h4>
                     <div class="tech-tags">
                         <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">CVXPY (SCIPY/HiGHS)</span>
-                        <span class="tech-tag">MPC (MILP)</span>
+                        <span class="tech-tag">CVXPY</span>
+                        <span class="tech-tag">MPC / MILP</span>
                         <span class="tech-tag">XGBoost</span>
                         <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Digital Twin Sim</span>
                         <span class="tech-tag">SHAP</span>
-                        <span class="tech-tag">NumPy</span>
-                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Digital Twin</span>
                     </div>
                 </div>
 
-                <!-- AI / NLP -->
-                <div class="tech-category animate-on-scroll">
-                    <h4><i class="fas fa-robot"></i> AI & NLP Expertise</h4>
+                <!-- AI/NLP SECOND -->
+                <div class="tech-category ai-nlp animate-on-scroll">
+                    <h4><i class="fas fa-robot"></i> AI / NLP Expertise</h4>
                     <div class="tech-tags">
+                        <span class="tech-tag">LLMs</span>
                         <span class="tech-tag">Agentic RAG</span>
-                        <span class="tech-tag">LLMs & Fine-Tuning</span>
+                        <span class="tech-tag">BGE-M3</span>
+                        <span class="tech-tag">BM25</span>
+                        <span class="tech-tag">Cross-Encoder</span>
                         <span class="tech-tag">Knowledge Graphs</span>
-                        <span class="tech-tag">Hybrid Retrieval (BGE-M3/BM25)</span>
-                        <span class="tech-tag">Cross-Encoder Reranking</span>
-                        <span class="tech-tag">Query Rewriting</span>
-                        <span class="tech-tag">Docling</span>
+                        <span class="tech-tag">Fine-tuning</span>
                     </div>
                 </div>
 
-                <!-- Core Prog -->
-                <div class="tech-category animate-on-scroll">
-                    <h4><i class="fas fa-code"></i> Programming Core</h4>
+                <div class="tech-category programming animate-on-scroll">
+                    <h4><i class="fas fa-code"></i> Programming & Core</h4>
                     <div class="tech-tags">
                         <span class="tech-tag">Python (FastAPI)</span>
-                        <span class="tech-tag">SQL (PostgreSQL)</span>
-                        <span class="tech-tag">Bash Scripting</span>
-                        <span class="tech-tag">Docker Containerization</span>
+                        <span class="tech-tag">SQL (BigQuery)</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Bash</span>
+                        <span class="tech-tag">Docker</span>
                     </div>
                 </div>
 
-                <!-- Data Engineering -->
-                <div class="tech-category animate-on-scroll">
-                    <h4><i class="fas fa-database"></i> Data Engineering</h4>
+                <div class="tech-category cloud animate-on-scroll">
+                    <h4><i class="fas fa-cloud"></i> Cloud & Data</h4>
                     <div class="tech-tags">
-                        <span class="tech-tag">ETL Pipelines</span>
-                        <span class="tech-tag">MQTT Protocol</span>
-                        <span class="tech-tag">Data Integrity Ops</span>
+                        <span class="tech-tag">GCP</span>
+                        <span class="tech-tag">Cloud Run</span>
+                        <span class="tech-tag">Pub/Sub</span>
                         <span class="tech-tag">BigQuery</span>
-                    </div>
-                </div>
-
-                <!-- Cloud -->
-                <div class="tech-category animate-on-scroll">
-                    <h4><i class="fas fa-cloud"></i> Cloud & BI</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">GCP (Cloud Run, Pub/Sub)</span>
-                        <span class="tech-tag">Azure (AZ-900)</span>
-                        <span class="tech-tag">Looker</span>
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">MQTT</span>
                     </div>
                 </div>
             </div>
@@ -559,134 +1034,153 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <span class="section-label">Selected Work</span>
-                <h2 class="section-title">Productionized Research</h2>
-                <p class="section-subtitle">Systems designed, developed, and deployed to drive measurable business value.</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Production systems built from research, deployed to real users. Click any card for details.</p>
             </div>
 
             <div class="projects-grid">
-                
-                <!-- Project 1: EMS -->
-                <div class="project-card animate-on-scroll" onclick="openModal('modal-ems')">
+                <!-- Project 1: EMS - NO GITHUB LINK -->
+                <div class="project-card animate-on-scroll" data-project="ems">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1509391366360-1e97d5261852?auto=format&fit=crop&w=800&q=80" alt="Energy Management System" />
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop" alt="Energy Management System" />
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="project-body">
                         <div class="project-category">Energy Management System</div>
                         <h3 class="project-title">MILP Model Predictive Control</h3>
                         <p class="project-desc">
-                            Replaced a legacy heuristic with a 96-step MILP optimizer running every minute on GCP. Secured switch to spot contracts via proven profitability.
+                            Replaced a rule-based heuristic with a 96-step MILP optimizer running every minute on GCP. 
+                            Achieved <strong>€77.69 net savings</strong> in the first month and proved spot-market profitability.
                         </p>
                         <div class="project-metrics">
-                            <span class="project-metric"><i class="fas fa-euro-sign"></i> €77.69 saved/mo</span>
-                            <span class="project-metric"><i class="fas fa-arrow-down"></i> 45% MAE drop</span>
-                            <span class="project-metric"><i class="fas fa-check-circle"></i> 99.9% Up</span>
+                            <span class="project-metric"><i class="fas fa-euro-sign"></i> €77.69 saved</span>
+                            <span class="project-metric"><i class="fas fa-percent"></i> 45% MAE reduction</span>
+                            <span class="project-metric"><i class="fas fa-shield-alt"></i> 99.9% reliability</span>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
-                                <i class="fas fa-search-plus"></i> View Details
+                            <button class="btn-learn-more" onclick="openModal('ems')">
+                                <i class="fas fa-arrow-right"></i> Learn More
                             </button>
+                            <!-- NO GitHub link - company confidential -->
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2: Legal RAG -->
-                <div class="project-card animate-on-scroll" onclick="openModal('modal-rag')">
+                <div class="project-card animate-on-scroll" data-project="legal-rag">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Legal RAG System" />
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Legal RAG System" />
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="project-body">
-                        <div class="project-category">Retrieval-Augmented Gen</div>
+                        <div class="project-category">Legal Retrieval-Augmented Generation</div>
                         <h3 class="project-title">French Contract Search Engine</h3>
                         <p class="project-desc">
-                            Production RAG system for 1,800+ pages of French solar PPAs. Reduced extensive legal review times drastically with strict citation grounding.
+                            Production RAG system for 1,800+ pages of French solar PPAs. 
+                            Cut contract review time from <strong>2 hours to 15 seconds</strong> with 95.6% citation accuracy.
                         </p>
                         <div class="project-metrics">
                             <span class="project-metric"><i class="fas fa-clock"></i> 2h → 15s</span>
-                            <span class="project-metric"><i class="fas fa-bullseye"></i> 95.6% Citation Acc.</span>
-                            <span class="project-metric"><i class="fas fa-shield-alt"></i> 100% Refusal</span>
+                            <span class="project-metric"><i class="fas fa-percent"></i> 78% MRR gain</span>
+                            <span class="project-metric"><i class="fas fa-gavel"></i> 100% refusal</span>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
-                                <i class="fas fa-search-plus"></i> View Details
+                            <button class="btn-learn-more" onclick="openModal('legal-rag')">
+                                <i class="fas fa-arrow-right"></i> Learn More
                             </button>
+                            <a href="https://github.com/karthik-raja17/Self-correcting-legal-rag" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Repo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3: ProVe -->
-                <div class="project-card animate-on-scroll" onclick="openModal('modal-prove')">
+                <div class="project-card animate-on-scroll" data-project="prove">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="ProVe Forensic AI" />
+                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=600&h=400&fit=crop" alt="ProVe Forensic AI" />
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="project-body">
                         <div class="project-category">AI Reproducibility & Forensics</div>
                         <h3 class="project-title">ProVe – Wikidata Verification</h3>
                         <p class="project-desc">
-                            Uncovered a 37.5% reproducibility gap in Wikidata fact-checking models. Fine-tuned T5 to fully restore original pipeline parity.
+                            Uncovered a 37.5% reproducibility gap in Wikidata verification. 
+                            Achieved <strong>95.2% verbalization parity</strong> via T5 fine-tuning on WebNLG 2020.
                         </p>
                         <div class="project-metrics">
-                            <span class="project-metric"><i class="fas fa-balance-scale"></i> 95.2% Parity</span>
-                            <span class="project-metric"><i class="fas fa-tachometer-alt"></i> 90% less overhead</span>
+                            <span class="project-metric"><i class="fas fa-search"></i> 95.2% parity</span>
+                            <span class="project-metric"><i class="fas fa-network-wired"></i> 90% less overhead</span>
+                            <span class="project-metric"><i class="fas fa-microchip"></i> 45% VRAM reduction</span>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
-                                <i class="fas fa-search-plus"></i> View Details
+                            <button class="btn-learn-more" onclick="openModal('prove')">
+                                <i class="fas fa-arrow-right"></i> Learn More
                             </button>
+                            <a href="https://github.com/karthik-raja17/ProVe-Forensic-Restoration" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Repo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4: MQTT -->
-                <div class="project-card animate-on-scroll" onclick="openModal('modal-mqtt')">
+                <div class="project-card animate-on-scroll" data-project="mqtt">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="AI MQTT Broker" />
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop" alt="AI MQTT Broker" />
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="project-body">
                         <div class="project-category">IoT & Real-Time Systems</div>
                         <h3 class="project-title">AI-Assisted MQTT Broker</h3>
                         <p class="project-desc">
-                            Hybrid MQTT broker leveraging Groq Llama3-70B plus a dynamic rule engine for context-aware energy message anomaly detection.
+                            Hybrid MQTT broker with Groq Llama3-70B + dynamic rule engine. 
+                            <strong>87% anomaly detection accuracy</strong> with 25% boost over legacy systems.
                         </p>
                         <div class="project-metrics">
-                            <span class="project-metric"><i class="fas fa-robot"></i> 87% Accuracy</span>
-                            <span class="project-metric"><i class="fas fa-bolt"></i> 0.278s Latency</span>
+                            <span class="project-metric"><i class="fas fa-robot"></i> 87% accuracy</span>
+                            <span class="project-metric"><i class="fas fa-bolt"></i> 25% boost</span>
+                            <span class="project-metric"><i class="fas fa-clock"></i> 0.278s latency</span>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
-                                <i class="fas fa-search-plus"></i> View Details
+                            <button class="btn-learn-more" onclick="openModal('mqtt')">
+                                <i class="fas fa-arrow-right"></i> Learn More
                             </button>
+                            <a href="https://github.com/karthik-raja17/AI-Assisted-Message-Routing-in-Pub-Sub-Systems" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Repo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 5: Azure -->
-                <div class="project-card animate-on-scroll" onclick="openModal('modal-azure')">
+                <div class="project-card animate-on-scroll" data-project="azure">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Azure Cloud" />
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop" alt="Azure Cloud" />
                         <div class="project-image-overlay"></div>
                     </div>
                     <div class="project-body">
                         <div class="project-category">Cloud Architecture</div>
-                        <h3 class="project-title">Azure Serverless Scaling</h3>
+                        <h3 class="project-title">Azure Microservices & Serverless</h3>
                         <p class="project-desc">
-                            Rigorous load testing of numerical integration microservices across 4 Azure compute models. Deployed resilient MapReduce pipelines.
+                            Deployed on 4 Azure compute models. Load-tested with Locust. 
+                            Serverless MapReduce pipeline with Durable Functions for fault-tolerant processing.
                         </p>
                         <div class="project-metrics">
-                            <span class="project-metric"><i class="fab fa-microsoft"></i> Azure Native</span>
-                            <span class="project-metric"><i class="fas fa-server"></i> Serverless</span>
+                            <span class="project-metric"><i class="fas fa-server"></i> 4 Compute Models</span>
+                            <span class="project-metric"><i class="fas fa-vial"></i> Locust Tested</span>
+                            <span class="project-metric"><i class="fab fa-microsoft"></i> Azure</span>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
-                                <i class="fas fa-search-plus"></i> View Details
+                            <button class="btn-learn-more" onclick="openModal('azure')">
+                                <i class="fas fa-arrow-right"></i> Learn More
                             </button>
+                            <a href="https://github.com/karthik-raja17/Cloud-Microservices-and-Serverless-Scaling" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Repo
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -700,23 +1194,22 @@
             </div>
 
             <div class="timeline">
-                
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-header">
                         <div>
                             <div class="timeline-title">Data Science & ML Engineering Intern</div>
-                            <div class="timeline-company">Faradae</div>
+                            <div class="timeline-company">Faradae · Lyon, France</div>
                         </div>
                         <div class="timeline-date">Mar 2026 – Present</div>
                     </div>
                     <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Lyon, France</div>
                     <div class="timeline-desc">
                         <ul>
-                            <li>Built a 96-step receding-horizon MILP optimizer running every minute on GCP, replacing legacy heuristic logic.</li>
-                            <li>Achieved €81 net profit in a single summer day via spot-price arbitrage.</li>
-                            <li>Onboarded 3 production sites, proving spot-market profitability leading to €77.69 net savings in the first month.</li>
-                            <li>Developed XGBoost solar forecast pipeline with 45.1% MAE reduction utilizing 14 physics-guided features.</li>
-                            <li>Engineered an automated MLOps retraining pipeline featuring continuous drift monitoring (PSI/KS tests).</li>
+                            <li>Built 96-step receding-horizon MILP optimizer (CVXPY/SCIPY) running every minute on GCP</li>
+                            <li>Achieved €81 net profit in a single summer day via spot-price arbitrage</li>
+                            <li>Onboarded 3 production sites with €77.69 net savings in first month</li>
+                            <li>Developed XGBoost solar forecast with 45.1% MAE reduction (14 physics-guided features)</li>
+                            <li>Built automated MLOps retraining pipeline with drift monitoring (PSI/KS tests)</li>
                         </ul>
                     </div>
                 </div>
@@ -725,16 +1218,16 @@
                     <div class="timeline-header">
                         <div>
                             <div class="timeline-title">Associate Business Analyst (Data Focus)</div>
-                            <div class="timeline-company">Infosys LTD</div>
+                            <div class="timeline-company">Infosys LTD · Chennai, India</div>
                         </div>
                         <div class="timeline-date">Aug 2022 – Aug 2024</div>
                     </div>
                     <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Chennai, India</div>
                     <div class="timeline-desc">
                         <ul>
-                            <li>Engineered automated data workflows using complex SQL queries and Spotfire, eliminating manual reporting overhead.</li>
-                            <li>Resolved critical data integrity failures by diagnosing sensor-level faults and implementing a root-cause fix for historical data.</li>
-                            <li>Led technical code reviews and mentored 3 junior developers on system best practices within an Agile delivery framework.</li>
+                            <li>Engineered automated data workflows using complex SQL and Spotfire</li>
+                            <li>Resolved critical data integrity failures by diagnosing sensor-level faults</li>
+                            <li>Led technical code reviews and mentored 3 junior developers on PEGA best practices</li>
                         </ul>
                     </div>
                 </div>
@@ -743,15 +1236,14 @@
                     <div class="timeline-header">
                         <div>
                             <div class="timeline-title">M.Sc. Computer Science (Data Science)</div>
-                            <div class="timeline-company">EURECOM</div>
+                            <div class="timeline-company">EURECOM · France</div>
                         </div>
                         <div class="timeline-date">Sept 2024 – Present</div>
                     </div>
-                    <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> France</div>
                     <div class="timeline-desc">
                         <ul>
-                            <li>Specialization in Data Science, Optimization Theory, Deep Learning, Distributed Systems, and Semantic Web.</li>
-                            <li>Top Academic Performance: 18.5/20 in Software Development Methodologies and 17.5/20 in Algorithmic Machine Learning.</li>
+                            <li>Specialization in Data Science, Optimization Theory, Deep Learning, Distributed Systems</li>
+                            <li>18.5/20 in Software Development Methodologies, 17.5/20 in Algorithmic Machine Learning</li>
                         </ul>
                     </div>
                 </div>
@@ -760,18 +1252,11 @@
                     <div class="timeline-header">
                         <div>
                             <div class="timeline-title">B.E. Computer Science and Engineering</div>
-                            <div class="timeline-company">Sri Sairam Institute of Technology</div>
+                            <div class="timeline-company">Sri Sairam Institute of Technology · India</div>
                         </div>
                         <div class="timeline-date">Jun 2018 – Jun 2022</div>
                     </div>
-                    <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> India</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Core foundations in computer architecture, data structures, algorithms, and software engineering principles.</li>
-                        </ul>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -781,179 +1266,173 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-social">
-                    <a href="https://github.com/karthik-raja17" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:karthikrajakandavel@gmail.com" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <a href="https://github.com/karthik-raja17" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:karthikrajakandavel@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
                 <p class="footer-text">
-                    © 2026 Karthik Raja KANDAVEL · AI & Data Science Engineer<br>
+                    © 2026 Karthik Raja KANDAVEL · Lyon, France<br>
                     <span style="font-size: 0.8rem; margin-top: 0.5rem; display: inline-block;">
-                        Lyon, France
+                        Built with HTML, CSS & caffeine ☕
                     </span>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL OVERLAYS (Hidden by default) -->
-    
-    <!-- Modal: EMS -->
-    <div class="modal-overlay" id="modal-ems" onclick="closeModal(event, 'modal-ems')">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModalBtn('modal-ems')"><i class="fas fa-times"></i></button>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="projectModal" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="project-category">Energy Management System</div>
-                <h2 class="modal-title">MILP Model Predictive Control</h2>
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                <div class="modal-category" id="modalCategory">Category</div>
+                <h3 class="modal-title" id="modalTitle">Project Title</h3>
             </div>
-            <div class="modal-tech">
-                <h4><i class="fas fa-code"></i> Tech Stack</h4>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span><span class="tech-tag">CVXPY</span>
-                    <span class="tech-tag">XGBoost</span><span class="tech-tag">GCP (Cloud Run, Pub/Sub, BigQuery)</span>
-                    <span class="tech-tag">Docker</span><span class="tech-tag">SHAP</span>
+            <div class="modal-body">
+                <div class="modal-metrics" id="modalMetrics"></div>
+                <div class="modal-desc" id="modalDesc">Description</div>
+                <div class="modal-tech">
+                    <h4>Tech Stack</h4>
+                    <div class="modal-tech-tags" id="modalTech"></div>
                 </div>
             </div>
-            <div class="modal-desc">
-                <p>Built a 96-step receding-horizon MILP optimizer (CVXPY/SCIPY) running every minute on GCP. Formulated binary charge/discharge/grid-lock decisions with dynamic Winter/Summer tariff switching. Achieved €81 net profit in a single summer day via spot-price arbitrage—capabilities the legacy heuristic could not perform.</p>
-                <br>
-                <p>Built a digital twin sandbox from scratch for safe closed-loop testing without affecting real batteries. Onboarded 3 production sites (Lentilly, Colombier, Dommartin) by replicating the cloud architecture. Engineered multi-layered fallback logic (null imputation, NaN removal) eliminating solver failures from upstream ETL gaps, delivering 99.9% reliability.</p>
-                <br>
-                <p>Developed an XGBoost solar forecast model with 14 physics-guided features and quantile ensembles (P5/P50/P95), achieving a 45.1% MAE reduction versus the legacy 24-hour persistence baseline. Built an automated MLOps retraining pipeline with drift monitoring (PSI/KS tests) closing the loop from early degradation detection to live mitigation.</p>
-            </div>
-            <!-- NOTE: No GitHub link per instructions -->
+            <div class="modal-footer" id="modalFooter"></div>
         </div>
     </div>
-
-    <!-- Modal: RAG -->
-    <div class="modal-overlay" id="modal-rag" onclick="closeModal(event, 'modal-rag')">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModalBtn('modal-rag')"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <div class="project-category">Retrieval-Augmented Generation</div>
-                <h2 class="modal-title">French Contract Search Engine</h2>
-            </div>
-            <div class="modal-tech">
-                <h4><i class="fas fa-code"></i> Tech Stack</h4>
-                <div class="tech-tags">
-                    <span class="tech-tag">ChromaDB</span><span class="tech-tag">BGE-M3</span>
-                    <span class="tech-tag">BM25</span><span class="tech-tag">Vertex AI Reranker</span>
-                    <span class="tech-tag">GCP</span><span class="tech-tag">Dedoc</span><span class="tech-tag">Gemini 2.5 Flash</span>
-                </div>
-            </div>
-            <div class="modal-desc">
-                <p>Designed a production-grade RAG system for French solar PPA contracts. Implemented hybrid retrieval (BM25 keyword + BGE-M3 dense embeddings) with Reciprocal Rank Fusion (RRF, K=60) and Vertex AI cross-encoder reranking (semantic-ranker-512-004) over 60 candidates. Achieved Site MRR = 0.7754 and Recall@5 = 0.9638 on a golden dataset of 120 QA pairs.</p>
-                <br>
-                <p>Reranking alone improved MRR by 14.1% over hybrid retrieval. Integrated Gemini 2.5 Flash for query rewriting and dynamic query expansion. Self-hosted BGE (∼8Gi memory) replaced Vertex AI embeddings for data privacy and cost predictability. Site metadata filtering boosted MRR by 78% (0.4374 → 0.7804) for site-specific queries.</p>
-                <br>
-                <p>Prompt-engineered Gemini 2.5 Flash achieved 100% absent clause refusal, 95.65% citation accuracy, and 4.63/5 answer relevance. Built a retry/failover mechanism ensuring 99.9% query availability.</p>
-            </div>
-            <a href="https://github.com/karthik-raja17/Self-correcting-legal-rag" target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-    </div>
-
-    <!-- Modal: ProVe -->
-    <div class="modal-overlay" id="modal-prove" onclick="closeModal(event, 'modal-prove')">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModalBtn('modal-prove')"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <div class="project-category">AI Reproducibility & Forensics</div>
-                <h2 class="modal-title">ProVe – Forensic Restoration</h2>
-            </div>
-            <div class="modal-tech">
-                <h4><i class="fas fa-code"></i> Tech Stack</h4>
-                <div class="tech-tags">
-                    <span class="tech-tag">PyTorch</span><span class="tech-tag">Hugging Face</span>
-                    <span class="tech-tag">Knowledge Graphs</span><span class="tech-tag">SPARQL</span>
-                    <span class="tech-tag">REST APIs</span><span class="tech-tag">T5 Model</span>
-                </div>
-            </div>
-            <div class="modal-desc">
-                <p>Conducted a forensic reconstruction and reproducibility audit of the ProVe pipeline. Uncovered a 37.5% performance gap between the original API and public repository models. Documented the 'Modernization Trap' where state-of-the-art Dense Retrieval underperformed legacy keyword heuristics for fact-checking.</p>
-                <br>
-                <p>Deliberately bypassed misleading aggregate metrics, prioritizing intellectual honesty over inflated performance claims. Achieved verbalization PARITY by fine-tuning T5-base on WebNLG 2020 with custom structural tokens, achieving 95.2% verbalization accuracy for 1,200+ Wikidata claims—functional parity with original research.</p>
-                <br>
-                <p>Migrated from SPARQL to batch REST API calls, cutting network overhead by 90%. Added a LabelCache persistence layer to eliminate redundant lookups. Engineered dynamic device allocation (CPU/GPU) reducing VRAM usage by 45%. Implemented a fingerprinting engine for evidence deduplication ensuring zero data loss during multi-hour runs.</p>
-            </div>
-            <a href="https://github.com/karthik-raja17/ProVe-Forensic-Restoration" target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-    </div>
-
-    <!-- Modal: MQTT -->
-    <div class="modal-overlay" id="modal-mqtt" onclick="closeModal(event, 'modal-mqtt')">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModalBtn('modal-mqtt')"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <div class="project-category">IoT & Real-Time Systems</div>
-                <h2 class="modal-title">AI-Assisted Message Routing</h2>
-            </div>
-            <div class="modal-tech">
-                <h4><i class="fas fa-code"></i> Tech Stack</h4>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span><span class="tech-tag">MQTT</span>
-                    <span class="tech-tag">Groq AI (Llama3)</span><span class="tech-tag">ThreadPoolExecutor</span>
-                </div>
-            </div>
-            <div class="modal-desc">
-                <p>Architected a hybrid MQTT broker integrating Groq AI's Llama3-70B for real-time contextual analysis with a dynamic rule engine. Engineered asynchronous AI inference with ThreadPoolExecutor, an LRU cache (1,000 entries) to reduce redundant API calls, and a failover mechanism ensuring seamless rule-only operation during LLM connectivity loss.</p>
-                <br>
-                <p>Achieved 87% anomaly detection accuracy and a 25% relative improvement over legacy rule-only systems. Enabled intelligent, context-aware message prioritization by continuously adapting energy/temperature thresholds using historical statistics and semantic understanding of edge cases.</p>
-                <br>
-                <p>Engineered dynamic subscriber scaling based on queue depth. Built a comparative benchmark harness rigorously measuring latency (avg 0.278s for 70B model), throughput, and routing accuracy—demonstrating production viability for real-time energy management.</p>
-            </div>
-            <a href="https://github.com/karthik-raja17/AI-Assisted-Message-Routing-in-Pub-Sub-Systems" target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-    </div>
-
-    <!-- Modal: Azure -->
-    <div class="modal-overlay" id="modal-azure" onclick="closeModal(event, 'modal-azure')">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModalBtn('modal-azure')"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <div class="project-category">Cloud Architecture</div>
-                <h2 class="modal-title">Azure Microservices Scaling</h2>
-            </div>
-            <div class="modal-tech">
-                <h4><i class="fas fa-code"></i> Tech Stack</h4>
-                <div class="tech-tags">
-                    <span class="tech-tag">Azure VM Scale Sets</span><span class="tech-tag">WebApp</span>
-                    <span class="tech-tag">Azure Functions</span><span class="tech-tag">Durable Functions</span>
-                    <span class="tech-tag">Blob Storage</span><span class="tech-tag">Locust</span>
-                </div>
-            </div>
-            <div class="modal-desc">
-                <p>Deployed a numerical integration microservice on four Azure compute models (VM Scale Sets, Autoscale WebApp, Azure Functions) and load-tested with Locust, measuring throughput, resilience, and recovery under stress.</p>
-                <br>
-                <p>Built a serverless MapReduce pipeline with Durable Functions to count words from large text files stored in Blob Storage, demonstrating fully parallel, fault-tolerant data processing.</p>
-                <br>
-                <p>Gained hands-on experience with Azure's serverless ecosystem, auto-scaling mechanisms, and infrastructure-as-code deployment principles to handle fluctuating data payloads reliably.</p>
-            </div>
-            <a href="https://github.com/karthik-raja17/Cloud-Microservices-and-Serverless-Scaling" target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-    </div>
-
 
     <!-- JAVASCRIPT -->
     <script>
+        // ── PROJECT DATA ──
+        const projectData = {
+            'ems': {
+                category: 'Energy Management System',
+                title: 'MILP Model Predictive Control',
+                metrics: [
+                    { icon: 'fa-euro-sign', text: '€77.69 saved' },
+                    { icon: 'fa-percent', text: '45% MAE reduction' },
+                    { icon: 'fa-shield-alt', text: '99.9% reliability' }
+                ],
+                desc: `Built a 96-step receding-horizon MILP optimizer (CVXPY/SCIPY) running every minute on GCP. Formulated binary charge/discharge/grid-lock decisions with dynamic Winter/Summer tariff switching. Achieved €81 net profit in a single summer day via spot-price arbitrage—capabilities the legacy heuristic could not perform. Built a digital twin sandbox from scratch for safe closed-loop testing without affecting real batteries. Onboarded 3 production sites (Lentilly, Colombier, Dommartin) by replicating the cloud architecture. Engineered multi-layered fallback logic (null imputation, NaN removal) eliminating solver failures from upstream ETL gaps, delivering 99.9% reliability. Developed XGBoost solar forecast with 14 physics-guided features and quantile ensembles (P5/P50/P95), achieving 45.1% MAE reduction versus the legacy 24-hour persistence baseline. Built automated MLOps retraining pipeline with drift monitoring (PSI/KS tests) closing the loop from degradation detection to live mitigation.`,
+                tech: ['Python', 'CVXPY', 'XGBoost', 'GCP (Cloud Run, Pub/Sub, BigQuery)', 'Docker', 'SHAP'],
+                hasRepo: false
+            },
+            'legal-rag': {
+                category: 'Legal Retrieval-Augmented Generation',
+                title: 'French Contract Search Engine',
+                metrics: [
+                    { icon: 'fa-clock', text: '2h → 15s review' },
+                    { icon: 'fa-percent', text: '78% MRR gain' },
+                    { icon: 'fa-gavel', text: '95.6% citation accuracy' }
+                ],
+                desc: `Designed a production-grade RAG system for French solar PPA contracts. Implemented hybrid retrieval (BM25 keyword + BGE-M3 dense embeddings) with Reciprocal Rank Fusion (RRF, K=60) and Vertex AI cross-encoder reranking (semantic-ranker-512-004) over 60 candidates. Achieved Site MRR = 0.7754 and Recall@5 = 0.9638 on a golden dataset of 120 QA pairs. Reranking alone improved MRR by 14.1% over hybrid retrieval. Integrated Gemini 2.5 Flash for query rewriting and dynamic query expansion. Self-hosted BGE (~8Gi memory) replaced Vertex AI embeddings for data privacy and cost predictability. Site metadata filtering boosted MRR by 78% (0.4374 → 0.7804) for site-specific queries. Prompt-engineered Gemini 2.5 Flash achieved 100% absent clause refusal, 95.65% citation accuracy, and 4.63/5 answer relevance. Built retry/failover mechanism ensuring 99.9% query availability.`,
+                tech: ['ChromaDB', 'BGE-M3', 'BM25', 'Vertex AI Reranker', 'GCP (Cloud Run, Pub/Sub, Firestore)', 'Dedoc', 'spaCy (French NER)', 'Gemini 2.5 Flash'],
+                hasRepo: true,
+                repoUrl: 'https://github.com/karthik-raja17/Self-correcting-legal-rag'
+            },
+            'prove': {
+                category: 'AI Reproducibility & Forensics',
+                title: 'ProVe – Wikidata Verification',
+                metrics: [
+                    { icon: 'fa-search', text: '95.2% parity' },
+                    { icon: 'fa-network-wired', text: '90% less overhead' },
+                    { icon: 'fa-microchip', text: '45% VRAM reduction' }
+                ],
+                desc: `Conducted a forensic reconstruction and reproducibility audit of the ProVe pipeline. Uncovered a 37.5% performance gap between the original API and public repository models. Documented the "Modernization Trap" where state-of-the-art Dense Retrieval underperformed legacy keyword heuristics for fact-checking. Deliberately bypassed misleading aggregate metrics, prioritizing intellectual honesty over inflated performance claims. Achieved verbalization PARITY by fine-tuning T5-base on WebNLG 2020 with custom structural tokens (<H>, <R>, <T>), achieving 95.2% verbalization accuracy for 1,200+ Wikidata claims—functional parity with original research. Migrated from SPARQL to batch REST API calls, cutting network overhead by 90%. Added LabelCache persistence layer to eliminate redundant lookups. Engineered dynamic device allocation (CPU/GPU) reducing VRAM usage by 45%. Implemented fingerprinting engine for evidence deduplication and Load-Update-Save persistence ensuring zero data loss during multi-hour runs.`,
+                tech: ['PyTorch', 'Hugging Face Transformers', 'Knowledge Graphs', 'SPARQL/REST APIs', 'T5'],
+                hasRepo: true,
+                repoUrl: 'https://github.com/karthik-raja17/ProVe-Forensic-Restoration'
+            },
+            'mqtt': {
+                category: 'IoT & Real-Time Systems',
+                title: 'AI-Assisted MQTT Broker',
+                metrics: [
+                    { icon: 'fa-robot', text: '87% accuracy' },
+                    { icon: 'fa-bolt', text: '25% boost' },
+                    { icon: 'fa-clock', text: '0.278s latency' }
+                ],
+                desc: `Architected a hybrid MQTT broker integrating Groq AI's Llama3-70B for real-time contextual analysis with a dynamic rule engine. Engineered asynchronous AI inference with ThreadPoolExecutor, an LRU cache (1,000 entries) to reduce redundant API calls, and a failover mechanism ensuring seamless rule-only operation during LLM connectivity loss. Achieved 87% anomaly detection accuracy and a 25% relative improvement over legacy rule-only systems. Enabled intelligent, context-aware message prioritization by continuously adapting energy/temperature thresholds using historical statistics (mean/std deviation) and semantic understanding of edge cases. Engineered dynamic subscriber scaling based on queue depth. Built a comparative benchmark harness (AI vs. traditional) rigorously measuring latency (avg 0.278s for 70B model), throughput, and routing accuracy—demonstrating production viability for real-time energy management.`,
+                tech: ['Python', 'MQTT', 'Groq AI (Llama3)', 'ThreadPoolExecutor', 'Dynamic Rule Engine'],
+                hasRepo: true,
+                repoUrl: 'https://github.com/karthik-raja17/AI-Assisted-Message-Routing-in-Pub-Sub-Systems'
+            },
+            'azure': {
+                category: 'Cloud Architecture',
+                title: 'Azure Microservices & Serverless',
+                metrics: [
+                    { icon: 'fa-server', text: '4 Compute Models' },
+                    { icon: 'fa-vial', text: 'Locust Load Tested' },
+                    { icon: 'fa-microsoft', text: 'Azure' }
+                ],
+                desc: `Deployed a numerical integration microservice on four Azure compute models (VM Scale Sets, Autoscale WebApp, Azure Functions) and load-tested with Locust, measuring throughput, resilience, and recovery under stress. Built a serverless MapReduce pipeline with Durable Functions to count words from large text files stored in Blob Storage, demonstrating fully parallel, fault-tolerant data processing. Gained hands-on experience with Azure's serverless ecosystem and infrastructure-as-code principles.`,
+                tech: ['Azure VM Scale Sets', 'WebApp', 'Functions', 'Durable Functions', 'Blob Storage', 'Locust'],
+                hasRepo: true,
+                repoUrl: 'https://github.com/karthik-raja17/Cloud-Microservices-and-Serverless-Scaling'
+            }
+        };
+
+        // ── MODAL FUNCTIONS ──
+        function openModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            document.getElementById('modalCategory').textContent = data.category;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalDesc').innerHTML = data.desc;
+
+            // Metrics
+            const metricsHtml = data.metrics.map(m => 
+                `<span class="modal-metric"><i class="fas ${m.icon}"></i> ${m.text}</span>`
+            ).join('');
+            document.getElementById('modalMetrics').innerHTML = metricsHtml;
+
+            // Tech tags
+            const techHtml = data.tech.map(t => 
+                `<span class="modal-tech-tag">${t}</span>`
+            ).join('');
+            document.getElementById('modalTech').innerHTML = techHtml;
+
+            // Footer links
+            let footerHtml = '';
+            if (data.hasRepo) {
+                footerHtml += `<a href="${data.repoUrl}" target="_blank" class="modal-link github"><i class="fab fa-github"></i> View on GitHub</a>`;
+            }
+            footerHtml += `<button class="modal-link primary" onclick="closeModal()"><i class="fas fa-times"></i> Close</button>`;
+            document.getElementById('modalFooter').innerHTML = footerHtml;
+
+            document.getElementById('projectModal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        function closeModalOnBackdrop(event) {
+            if (event.target === document.getElementById('projectModal')) {
+                closeModal();
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Click on card opens modal (except buttons/links)
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+                const projectId = card.getAttribute('data-project');
+                if (projectId) openModal(projectId);
+            });
+        });
+
         // ── SCROLL PROGRESS BAR ──
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            document.getElementById('scrollProgress').style.width = (winScroll / height) * 100 + '%';
         });
 
         // ── ANIMATED COUNTERS ──
@@ -969,10 +1448,8 @@
                 const easeOut = 1 - Math.pow(1 - progress, 3);
                 const current = target * easeOut;
                 
-                if (el.dataset.target === "77.69") {
+                if (isDecimal) {
                     el.textContent = '€' + current.toFixed(2);
-                } else if (isDecimal) {
-                    el.textContent = current.toFixed(1);
                 } else {
                     el.textContent = Math.floor(current);
                 }
@@ -980,32 +1457,19 @@
                 if (progress < 1) {
                     requestAnimationFrame(update);
                 } else {
-                    if (el.dataset.target === "77.69") {
-                        el.textContent = '€' + target.toFixed(2);
-                    } else if (isDecimal) {
-                        el.textContent = target.toFixed(1);
-                    } else {
-                        el.textContent = target;
-                    }
+                    if (isDecimal) el.textContent = '€' + target.toFixed(2);
+                    else el.textContent = target;
                 }
             };
             requestAnimationFrame(update);
         };
 
         // ── SCROLL ANIMATIONS ──
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
-                    // Trigger counters
-                    const counters = entry.target.querySelectorAll('.count');
-                    counters.forEach(counter => {
+                    entry.target.querySelectorAll('.count').forEach(counter => {
                         if (!counter.classList.contains('counted')) {
                             counter.classList.add('counted');
                             animateCounter(counter);
@@ -1013,78 +1477,42 @@
                     });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Trigger hero counters immediately
+        document.querySelectorAll('.hero .count').forEach(counter => {
+            counter.classList.add('counted');
+            animateCounter(counter);
         });
-
-        // Hero counters trigger immediately
-        setTimeout(() => {
-            document.querySelectorAll('.hero .count').forEach(counter => {
-                counter.classList.add('counted');
-                animateCounter(counter);
-            });
-        }, 100);
 
         // ── FLOATING PARTICLES ──
         const createParticles = () => {
             const container = document.getElementById('particles');
-            const particleCount = 25; // Adjusted for performance
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-                particle.style.animationDelay = (Math.random() * 15) + 's';
-                particle.style.width = (Math.random() * 3 + 1) + 'px';
-                particle.style.height = particle.style.width;
-                
-                const colors = ['#3b82f6', '#06b6d4', '#8b5cf6'];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                container.appendChild(particle);
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                p.style.animationDelay = (Math.random() * 15) + 's';
+                const size = Math.random() * 3 + 1;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                const colors = ['#3b82f6', '#06b6d4', '#8b5cf6', '#ec4899'];
+                p.style.background = colors[Math.floor(Math.random() * colors.length)];
+                container.appendChild(p);
             }
         };
         createParticles();
 
-        // ── SMOOTH SCROLL FOR NAV LINKS ──
+        // ── SMOOTH SCROLL ──
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-        });
-
-        // ── MODAL LOGIC ──
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModalBtn(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function closeModal(event, modalId) {
-            // Close only if clicking the overlay background directly
-            if (event.target.id === modalId) {
-                closeModalBtn(modalId);
-            }
-        }
-        
-        // Escape key closes modals
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
-                document.body.style.overflow = '';
-            }
         });
     </script>
 </body>
