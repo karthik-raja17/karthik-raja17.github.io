@@ -1369,7 +1369,7 @@
                 desc: `Designed a production-grade RAG system for French solar PPA contracts. Implemented hybrid retrieval (BM25 keyword + BGE-M3 dense embeddings) with Reciprocal Rank Fusion (RRF, K=60) and Vertex AI cross-encoder reranking (semantic-ranker-512-004) over 60 candidates. Achieved Site MRR = 0.7754 and Recall@5 = 0.9638 on a golden dataset of 120 QA pairs. Reranking alone improved MRR by 14.1% over hybrid retrieval. Integrated Gemini 2.5 Flash for query rewriting and dynamic query expansion. Self-hosted BGE (~8Gi memory) replaced Vertex AI embeddings for data privacy and cost predictability. Site metadata filtering boosted MRR by 78% (0.4374 → 0.7804) for site-specific queries. Prompt-engineered Gemini 2.5 Flash achieved 100% absent clause refusal, 95.65% citation accuracy, and 4.63/5 answer relevance. Built retry/failover mechanism ensuring 99.9% query availability.`,
                 tech: ['ChromaDB', 'BGE-M3', 'BM25', 'Vertex AI Reranker', 'GCP (Cloud Run, Pub/Sub, Firestore)', 'Dedoc', 'spaCy (French NER)', 'Gemini 2.5 Flash'],
                 hasRepo: true,
-                repoUrl: 'https://github.com/karthik-raja17/Self-correcting-legal-rag'
+                repoUrl: 'https://github.com/karthik-raja17/Legal-Rag'
             },
             'prove': {
                 category: 'AI Reproducibility & Forensics',
