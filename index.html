@@ -2059,13 +2059,13 @@
                         <div class="telemetry-item">
                             <div class="telemetry-item-top">
                                 <div class="telemetry-icon-box cyan"><i class="fas fa-chart-line"></i></div>
-                                <span class="telemetry-tag">Solar Forecast</span>
+                                <span class="telemetry-tag">Solar Production Forecast</span>
                             </div>
                             <div class="telemetry-metric">
                                 <span class="highlight-cyan">-</span><span class="counter" data-target="45.1" data-decimals="1">0.0</span><span class="highlight-cyan">%</span>
                             </div>
                             <div class="telemetry-label">MAE Forecast Error</div>
-                            <div class="telemetry-sub">Physics-guided XGBoost with 14 features outperforming 24h persistence.</div>
+                            <div class="telemetry-sub">Physics-guided XGBoost production forecast with 14 features outperforming 24h persistence.</div>
                         </div>
 
                         <!-- Stat 3 -->
@@ -2330,7 +2330,7 @@
                     <div class="flagship-content-side">
                         <div>
                             <div class="flagship-kicker">Energy Management System // Closed-Loop MPC</div>
-                            <h3 class="flagship-title">Autonomous MILP Optimizer & Solar Forecast Pipeline</h3>
+                            <h3 class="flagship-title">Autonomous MILP Optimizer & Solar Production Forecast Pipeline</h3>
                         </div>
 
                         <p class="flagship-desc">
@@ -2345,7 +2345,7 @@
                             </div>
                             <div class="flagship-metric-cell">
                                 <span class="fmc-value">45.1% MAE Drop</span>
-                                <span class="fmc-label">Solar error reduction vs 24h baseline</span>
+                                <span class="fmc-label">Solar production error reduction vs 24h baseline</span>
                             </div>
                             <div class="flagship-metric-cell">
                                 <span class="fmc-value">99.9% Uptime</span>
@@ -2522,7 +2522,7 @@
                         <ul class="timeline-highlights">
                             <li>Engineered a 96-step receding-horizon MILP optimizer (CVXPY/SCIP) running every 60 seconds on GCP Cloud Run for autonomous battery arbitrage.</li>
                             <li>Delivered <strong>€81 net profit in a single summer day</strong> and <strong>€77.69 net savings in the first month</strong> across 3 live commercial battery sites.</li>
-                            <li>Developed physics-guided XGBoost solar forecasting model with 14 engineered meteorological features, cutting MAE by <strong>45.1%</strong> over the 24h baseline.</li>
+                            <li>Developed physics-guided XGBoost solar production forecasting model with 14 engineered meteorological features, cutting MAE by <strong>45.1%</strong> over the 24h baseline.</li>
                             <li>Constructed automated MLOps drift monitoring pipeline with Population Stability Index (PSI) and Kolmogorov-Smirnov tests for automated retraining.</li>
                         </ul>
                     </div>
@@ -2655,7 +2655,7 @@
         const projectData = {
             'ems': {
                 kicker: 'Flagship Production System // Model Predictive Control',
-                title: 'MILP Battery Optimizer & Automated Solar Forecast Pipeline',
+                title: 'MILP Battery Optimizer & Automated Solar Production Forecast Pipeline',
                 metrics: [
                     { icon: 'fa-euro-sign', text: '€77.69 saved (Month 1)' },
                     { icon: 'fa-chart-line', text: '45.1% MAE Forecast Drop' },
@@ -2664,7 +2664,7 @@
                 ],
                 desc: `<p><strong>The Problem:</strong> The company's legacy heuristic algorithm was rule-bound and unable to capitalize on dynamic spot-price fluctuations, leading to suboptimal battery charge schedules and missed arbitrage revenue.</p>
                 <p style="margin-top:0.8rem;"><strong>The Engineering Solution:</strong> Formulated and shipped a 96-step receding-horizon Mixed-Integer Linear Program (MILP) using CVXPY and SCIP solvers, running asynchronously every minute on GCP Cloud Run. Implemented binary charge/discharge/grid-lock decision variables with seasonal tariff switching. Built a closed-loop digital twin sandbox for rigorous simulation before hardware deployment.</p>
-                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved €81 net profit in a single summer day and €77.69 net savings in Month 1 under high spot prices. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
+                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved €81 net profit in a single summer day and €77.69 net savings in Month 1 under high spot prices. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar production forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
                 tech: ['Python 3.11', 'CVXPY (SCIP)', 'XGBoost', 'GCP Cloud Run', 'GCP Pub/Sub', 'BigQuery', 'Docker', 'SHAP', 'MLOps Drift Detection'],
                 hasRepo: false,
                 isConfidential: true
