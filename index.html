@@ -233,39 +233,76 @@
             animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
-        /* ── METRIC BADGES ── */
-        .metric-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
+        /* ── BUSINESS IMPACT (NEW) ── */
+        .business-impact {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
             margin-bottom: 2.5rem;
             animation: fadeInUp 0.6s ease-out 0.4s both;
         }
 
-        .metric-badge {
-            display: inline-flex;
+        .impact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-cyan);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 2rem;
+        }
+
+        .impact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .impact-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            .impact-item {
+                border-bottom: 1px solid var(--border-color);
+            }
+            .impact-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .impact-metric {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 50px;
-            padding: 0.55rem 1.2rem;
+        }
+
+        .impact-metric i {
+            color: var(--accent-green);
+            font-size: 0.7rem;
+        }
+
+        .impact-desc {
             font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-            cursor: default;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding-left: 1.2rem;
         }
-
-        .metric-badge:hover {
-            background: rgba(59,130,246,0.08);
-            border-color: rgba(59,130,246,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(59,130,246,0.15);
-        }
-
-        .metric-badge i { color: var(--accent-cyan); font-size: 0.75rem; }
-        .metric-badge .count { color: var(--text-primary); font-weight: 700; }
 
         /* ── CTA BUTTONS ── */
         .cta-group {
@@ -872,6 +909,9 @@
             .timeline-item::before { left: -1.5rem; }
             .modal-content { max-height: 90vh; }
             .modal-header, .modal-body, .modal-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .impact-item { border-bottom: 1px solid var(--border-color); }
+            .impact-item:last-child { border-bottom: none; }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -913,38 +953,42 @@
                     <i class="fas fa-circle"></i>
                     Open to AI/ML Engineering Roles
                 </div>
-                
+
                 <h1><span class="gradient-text">Karthik Raja KANDAVEL</span></h1>
-                
+
                 <p class="tagline">AI & Data Science Engineer · Productionizing Research</p>
-                
+
                 <p class="hero-bio">
-                    I build production-grade AI systems that bridge the gap between research and real-world impact. 
-                    Currently a Data Science Master's student at EURECOM, I design cloud-native architectures, 
+                    I build production-grade AI systems that bridge the gap between research and real-world impact.
+                    Currently a Data Science Master's student at EURECOM, I design cloud-native architectures,
                     MILP optimizers, MLOps pipelines, and retrieval-augmented systems for energy and legal domains.
                 </p>
 
-                <div class="metric-badges">
-                    <span class="metric-badge" title="Helped Faradae prove spot-market profitability and convinced the client to switch from fixed to spot contracts">
-                        <i class="fas fa-coins"></i>
-                        <span class="count" data-target="77.69">€0</span> net savings
-                    </span>
-                    <span class="metric-badge" title="Enabled smarter battery charging decisions, directly increasing arbitrage profit">
-                        <i class="fas fa-chart-line"></i>
-                        <span class="count" data-target="45">0</span>% MAE reduction
-                    </span>
-                    <span class="metric-badge" title="Saved Faradae's legal team hundreds of hours on contract analysis, enabling faster deal closures">
-                        <i class="fas fa-clock"></i>
-                        <span class="count" data-target="2">0</span>hr → 15s review
-                    </span>
-                    <span class="metric-badge" title="Production-ready legal AI with 100% absent-clause refusal, giving lawyers confidence to rely on the system">
-                        <i class="fas fa-check-circle"></i>
-                        <span class="count" data-target="95.6">0</span>% citation accuracy
-                    </span>
-                    <span class="metric-badge" title="Hands-off production system running every minute without human intervention, eliminating manual oversight">
-                        <i class="fas fa-bolt"></i>
-                        <span class="count" data-target="99.9">0</span>% reliability
-                    </span>
+                <!-- ── BUSINESS IMPACT (REPLACES METRIC BADGES) ── -->
+                <div class="business-impact">
+                    <span class="impact-label"><i class="fas fa-bullseye"></i> Business Impact</span>
+                    <div class="impact-grid">
+                        <div class="impact-item">
+                            <span class="impact-metric"><i class="fas fa-circle"></i> €77.69 net savings in first month</span>
+                            <span class="impact-desc">Helped Faradae prove spot-market profitability and convinced the client to switch from fixed to spot contracts.</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-metric"><i class="fas fa-circle"></i> 45% MAE reduction in solar forecasting</span>
+                            <span class="impact-desc">Enabled smarter battery charging decisions, directly increasing arbitrage profit for the company.</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-metric"><i class="fas fa-circle"></i> 2 hours → 15 seconds review time</span>
+                            <span class="impact-desc">Saved Faradae's legal team hundreds of hours on contract analysis, enabling faster deal closures.</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-metric"><i class="fas fa-circle"></i> 95.6% citation accuracy</span>
+                            <span class="impact-desc">Production-ready legal AI with 100% absent-clause refusal, giving lawyers confidence to rely on the system.</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-metric"><i class="fas fa-circle"></i> 99.9% system reliability</span>
+                            <span class="impact-desc">Hands-off production system running every minute without human intervention, eliminating manual oversight.</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cta-group">
@@ -1049,7 +1093,7 @@
                         <div class="project-category">Energy Management System</div>
                         <h3 class="project-title">MILP Model Predictive Control</h3>
                         <p class="project-desc">
-                            Replaced a rule-based heuristic with a 96-step MILP optimizer running every minute on GCP. 
+                            Replaced a rule-based heuristic with a 96-step MILP optimizer running every minute on GCP.
                             Achieved <strong>€77.69 net savings</strong> in the first month and proved spot-market profitability.
                         </p>
                         <div class="project-metrics">
@@ -1076,7 +1120,7 @@
                         <div class="project-category">Legal Retrieval-Augmented Generation</div>
                         <h3 class="project-title">French Contract Search Engine</h3>
                         <p class="project-desc">
-                            Production RAG system for 1,800+ pages of French solar PPAs. 
+                            Production RAG system for 1,800+ pages of French solar PPAs.
                             Cut contract review time from <strong>2 hours to 15 seconds</strong> with 95.6% citation accuracy.
                         </p>
                         <div class="project-metrics">
@@ -1105,7 +1149,7 @@
                         <div class="project-category">AI Reproducibility & Forensics</div>
                         <h3 class="project-title">ProVe – Wikidata Verification</h3>
                         <p class="project-desc">
-                            Uncovered a 37.5% reproducibility gap in Wikidata verification. 
+                            Uncovered a 37.5% reproducibility gap in Wikidata verification.
                             Achieved <strong>95.2% verbalization parity</strong> via T5 fine-tuning on WebNLG 2020.
                         </p>
                         <div class="project-metrics">
@@ -1134,7 +1178,7 @@
                         <div class="project-category">IoT & Real-Time Systems</div>
                         <h3 class="project-title">AI-Assisted MQTT Broker</h3>
                         <p class="project-desc">
-                            Hybrid MQTT broker with Groq Llama3-70B + dynamic rule engine. 
+                            Hybrid MQTT broker with Groq Llama3-70B + dynamic rule engine.
                             <strong>87% anomaly detection accuracy</strong> with 25% boost over legacy systems.
                         </p>
                         <div class="project-metrics">
@@ -1163,7 +1207,7 @@
                         <div class="project-category">Cloud Architecture</div>
                         <h3 class="project-title">Azure Microservices & Serverless</h3>
                         <p class="project-desc">
-                            Deployed on 4 Azure compute models. Load-tested with Locust. 
+                            Deployed on 4 Azure compute models. Load-tested with Locust.
                             Serverless MapReduce pipeline with Durable Functions for fault-tolerant processing.
                         </p>
                         <div class="project-metrics">
@@ -1435,57 +1479,16 @@
             document.getElementById('scrollProgress').style.width = (winScroll / height) * 100 + '%';
         });
 
-        // ── ANIMATED COUNTERS ──
-        const animateCounter = (el) => {
-            const target = parseFloat(el.getAttribute('data-target'));
-            const isDecimal = target % 1 !== 0;
-            const duration = 2000;
-            const start = performance.now();
-            
-            const update = (now) => {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = target * easeOut;
-                
-                if (isDecimal) {
-                    el.textContent = '€' + current.toFixed(2);
-                } else {
-                    el.textContent = Math.floor(current);
-                }
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    if (isDecimal) el.textContent = '€' + target.toFixed(2);
-                    else el.textContent = target;
-                }
-            };
-            requestAnimationFrame(update);
-        };
-
         // ── SCROLL ANIMATIONS ──
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    entry.target.querySelectorAll('.count').forEach(counter => {
-                        if (!counter.classList.contains('counted')) {
-                            counter.classList.add('counted');
-                            animateCounter(counter);
-                        }
-                    });
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-        // Trigger hero counters immediately
-        document.querySelectorAll('.hero .count').forEach(counter => {
-            counter.classList.add('counted');
-            animateCounter(counter);
-        });
 
         // ── FLOATING PARTICLES ──
         const createParticles = () => {
