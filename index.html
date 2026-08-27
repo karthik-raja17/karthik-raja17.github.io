@@ -233,7 +233,7 @@
             animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
-        /* ── BUSINESS IMPACT (NEW) ── */
+        /* ── BUSINESS IMPACT ── */
         .business-impact {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -964,13 +964,13 @@
                     MILP optimizers, MLOps pipelines, and retrieval-augmented systems for energy and legal domains.
                 </p>
 
-                <!-- ── BUSINESS IMPACT (REPLACES METRIC BADGES) ── -->
+                <!-- ── BUSINESS IMPACT ── -->
                 <div class="business-impact">
                     <span class="impact-label"><i class="fas fa-bullseye"></i> Business Impact</span>
                     <div class="impact-grid">
                         <div class="impact-item">
-                            <span class="impact-metric"><i class="fas fa-circle"></i> €77.69 net savings in first month</span>
-                            <span class="impact-desc">Helped Faradae prove spot-market profitability and convinced the client to switch from fixed to spot contracts.</span>
+                            <span class="impact-metric"><i class="fas fa-circle"></i> €77.69 net savings in first month (despite unusually high spot prices)</span>
+                            <span class="impact-desc">Proved system profitability under challenging conditions, confirming robustness and convincing the client to switch to spot.</span>
                         </div>
                         <div class="impact-item">
                             <span class="impact-metric"><i class="fas fa-circle"></i> 45% MAE reduction in solar forecasting</span>
@@ -1093,8 +1093,7 @@
                         <div class="project-category">Energy Management System</div>
                         <h3 class="project-title">MILP Model Predictive Control</h3>
                         <p class="project-desc">
-                            Replaced a rule-based heuristic with a 96-step MILP optimizer running every minute on GCP.
-                            Achieved <strong>€77.69 net savings</strong> in the first month and proved spot-market profitability.
+                            Replaced a rule‑based heuristic with a <strong>96‑step MILP optimizer</strong> running every minute on GCP. Achieved <strong>€81 net profit</strong> in a single summer day and <strong>€77.69 net savings</strong> in the first month—proving profitability even during unusually high spot prices. Onboarded <strong>3 production sites</strong>, delivered <strong>99.9% reliability</strong>, and achieved a <strong>45% MAE reduction</strong> with XGBoost forecasting.
                         </p>
                         <div class="project-metrics">
                             <span class="project-metric"><i class="fas fa-euro-sign"></i> €77.69 saved</span>
@@ -1120,8 +1119,7 @@
                         <div class="project-category">Legal Retrieval-Augmented Generation</div>
                         <h3 class="project-title">French Contract Search Engine</h3>
                         <p class="project-desc">
-                            Production RAG system for 1,800+ pages of French solar PPAs.
-                            Cut contract review time from <strong>2 hours to 15 seconds</strong> with 95.6% citation accuracy.
+                            Built a production RAG system for <strong>1,800+ pages</strong> of French solar PPAs (33 contracts, 335 MB). Achieved <strong>95.6% citation accuracy</strong> and <strong>100% absent‑clause refusal</strong>. Site metadata filtering boosted MRR by <strong>78%</strong>. <strong>Cut review time from 2 hours to 15 seconds</strong>.
                         </p>
                         <div class="project-metrics">
                             <span class="project-metric"><i class="fas fa-clock"></i> 2h → 15s</span>
@@ -1356,7 +1354,7 @@
                     { icon: 'fa-percent', text: '45% MAE reduction' },
                     { icon: 'fa-shield-alt', text: '99.9% reliability' }
                 ],
-                desc: `Built a 96-step receding-horizon MILP optimizer (CVXPY/SCIPY) running every minute on GCP. Formulated binary charge/discharge/grid-lock decisions with dynamic Winter/Summer tariff switching. Achieved €81 net profit in a single summer day via spot-price arbitrage—capabilities the legacy heuristic could not perform. Built a digital twin sandbox from scratch for safe closed-loop testing without affecting real batteries. Onboarded 3 production sites (Lentilly, Colombier, Dommartin) by replicating the cloud architecture. Engineered multi-layered fallback logic (null imputation, NaN removal) eliminating solver failures from upstream ETL gaps, delivering 99.9% reliability. Developed XGBoost solar forecast with 14 physics-guided features and quantile ensembles (P5/P50/P95), achieving 45.1% MAE reduction versus the legacy 24-hour persistence baseline. Built automated MLOps retraining pipeline with drift monitoring (PSI/KS tests) closing the loop from degradation detection to live mitigation.`,
+                desc: `Built a 96-step receding-horizon MILP optimizer (CVXPY/SCIPY) running every minute on GCP. Formulated binary charge/discharge/grid-lock decisions with dynamic Winter/Summer tariff switching. Achieved €81 net profit in a single summer day via spot-price arbitrage—capabilities the legacy heuristic could not perform. Built a digital twin sandbox from scratch for safe closed-loop testing without affecting real batteries. Onboarded 3 production sites (Lentilly, Colombier, Dommartin) by replicating the cloud architecture. Engineered multi-layered fallback logic (null imputation, NaN removal) eliminating solver failures from upstream ETL gaps, delivering 99.9% reliability. Developed XGBoost solar forecast with 14 physics-guided features and quantile ensembles (P5/P50/P95), achieving 45.1% MAE reduction versus the legacy 24-hour persistence baseline. Built automated MLOps retraining pipeline with drift monitoring (PSI/KS tests) closing the loop from degradation detection to live mitigation — all while proving profitability during a period of unusually high spot prices.`,
                 tech: ['Python', 'CVXPY', 'XGBoost', 'GCP (Cloud Run, Pub/Sub, BigQuery)', 'Docker', 'SHAP'],
                 hasRepo: false
             },
