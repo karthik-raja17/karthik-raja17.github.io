@@ -6,6 +6,18 @@
     <title>Karthik Raja KANDAVEL – AI & Data Science Engineer</title>
     <meta name="description" content="AI & Data Science Engineer specializing in productionizing research. Mathematical optimization (MILP/MPC), Enterprise RAG, and autonomous MLOps pipelines." />
 
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J62VFMK1K6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J62VFMK1K6', {
+            send_page_view: true
+        });
+    </script>
+
     <!-- Favicon: High-tech Geometric SVG Data URI -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2308090c'/%3E%3Crect x='4' y='4' width='92' height='92' rx='20' fill='none' stroke='%23e8a33d' stroke-width='4' stroke-opacity='0.4'/%3E%3Cpath d='M30 25 L30 75 M30 50 L68 25 M30 50 L70 75' stroke='%23e8a33d' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='70' cy='25' r='5' fill='%234dd4c7'/%3E%3Ccircle cx='72' cy='75' r='5' fill='%234dd4c7'/%3E%3C/svg%3E" />
 
@@ -763,6 +775,142 @@
             background: var(--accent-amber);
             color: #000;
             box-shadow: 0 4px 20px var(--accent-amber-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ── EXECUTIVE TESTIMONIAL & APPRAISAL CARD ── */
+        .executive-appraisal-card {
+            margin-top: 1.4rem;
+            background: linear-gradient(145deg, rgba(18, 24, 34, 0.95), rgba(12, 16, 24, 0.95));
+            border: 1px solid rgba(77, 212, 199, 0.28);
+            border-radius: var(--radius-md);
+            padding: 1.4rem 1.6rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .executive-appraisal-card:hover {
+            border-color: rgba(77, 212, 199, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(77, 212, 199, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .appraisal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .appraisal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            background: rgba(77, 212, 199, 0.1);
+            border: 1px solid rgba(77, 212, 199, 0.3);
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+        }
+
+        .appraisal-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-dim);
+        }
+
+        .appraisal-quote {
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-style: italic;
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .appraisal-quote::before {
+            content: '“';
+            position: absolute;
+            left: 0;
+            top: -0.2rem;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            opacity: 0.6;
+            line-height: 1;
+        }
+
+        .appraisal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .appraisal-author {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .author-avatar-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(77, 212, 199, 0.15);
+            border: 1px solid var(--border-cyan);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .author-name {
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .author-title {
+            font-size: 0.73rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .btn-signed-letter {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(77, 212, 199, 0.15), rgba(59, 130, 246, 0.15));
+            border: 1px solid var(--border-cyan);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1.15rem;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 15px rgba(77, 212, 199, 0.1);
+        }
+
+        .btn-signed-letter:hover {
+            background: var(--accent-cyan);
+            color: #08090c;
+            font-weight: 700;
+            box-shadow: 0 4px 20px var(--accent-cyan-glow);
             transform: translateY(-2px);
         }
 
@@ -1965,10 +2113,10 @@
             </ul>
 
             <div class="nav-actions">
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-nav-resume">
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-nav-resume" onclick="trackEvent('resume_view', { source: 'navbar' })">
                     <i class="fas fa-file-pdf"></i> Resume
                 </a>
-                <a href="#contact" class="btn-nav">
+                <a href="#contact" class="btn-nav" onclick="trackEvent('contact_click', { source: 'navbar' })">
                     <i class="fas fa-paper-plane"></i> Get in Touch
                 </a>
                 <!-- Mobile Hamburger Button -->
@@ -1996,10 +2144,10 @@
         </ul>
 
         <div class="mobile-nav-actions">
-            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;" onclick="trackEvent('resume_view', { source: 'mobile_drawer' })">
                 <i class="fas fa-file-pdf" style="color:var(--accent-amber)"></i> View & Download Resume
             </a>
-            <a href="#contact" class="btn btn-primary-action mobile-link" style="width: 100%;">
+            <a href="#contact" class="btn btn-primary-action mobile-link" style="width: 100%;" onclick="trackEvent('contact_click', { source: 'mobile_drawer' })">
                 <i class="fas fa-paper-plane"></i> Let's Connect
             </a>
         </div>
@@ -2059,13 +2207,13 @@
                         <div class="telemetry-item">
                             <div class="telemetry-item-top">
                                 <div class="telemetry-icon-box cyan"><i class="fas fa-chart-line"></i></div>
-                                <span class="telemetry-tag">Solar Production Forecast</span>
+                                <span class="telemetry-tag">Solar Forecast</span>
                             </div>
                             <div class="telemetry-metric">
                                 <span class="highlight-cyan">-</span><span class="counter" data-target="45.1" data-decimals="1">0.0</span><span class="highlight-cyan">%</span>
                             </div>
                             <div class="telemetry-label">MAE Forecast Error</div>
-                            <div class="telemetry-sub">Physics-guided XGBoost production forecast with 14 features outperforming 24h persistence.</div>
+                            <div class="telemetry-sub">Physics-guided XGBoost with 14 features outperforming 24h persistence.</div>
                         </div>
 
                         <!-- Stat 3 -->
@@ -2096,18 +2244,18 @@
                     </div>
                 </div>
 
-                <!-- CTA Button Cluster with Download Resume -->
+                <!-- Hero CTA Button Cluster -->
                 <div class="hero-actions reveal-on-scroll">
                     <a href="#projects" class="btn btn-primary-action">
                         <i class="fas fa-layer-group"></i> Explore Production Systems
                     </a>
-                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume">
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume" onclick="trackEvent('resume_view', { source: 'hero_cta' })">
                         <i class="fas fa-file-pdf"></i> View & Download Resume
                     </a>
-                    <a href="https://github.com/karthik-raja17" target="_blank" class="btn btn-outline">
+                    <a href="https://github.com/karthik-raja17" target="_blank" class="btn btn-outline" onclick="trackEvent('outbound_click', { platform: 'github', location: 'hero' })">
                         <i class="fab fa-github"></i> GitHub Codebase
                     </a>
-                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" class="btn btn-outline">
+                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" class="btn btn-outline" onclick="trackEvent('outbound_click', { platform: 'linkedin', location: 'hero' })">
                         <i class="fab fa-linkedin-in"></i> LinkedIn
                     </a>
                 </div>
@@ -2130,7 +2278,7 @@
                         <div class="trust-item-icon"><i class="fas fa-solar-panel"></i></div>
                         <div class="trust-item-text">
                             <span class="trust-org">Faradae (France)</span>
-                            <span class="trust-desc">Data Science & ML Engineering</span>
+                            <span class="trust-desc"><i class="fas fa-check-circle" style="color:var(--accent-cyan); font-size:0.68rem; margin-right:3px;"></i>CEO Endorsed · Data Science</span>
                         </div>
                     </div>
                     <div class="trust-item">
@@ -2330,7 +2478,7 @@
                     <div class="flagship-content-side">
                         <div>
                             <div class="flagship-kicker">Energy Management System // Closed-Loop MPC</div>
-                            <h3 class="flagship-title">Autonomous MILP Optimizer & Solar Production Forecast Pipeline</h3>
+                            <h3 class="flagship-title">Autonomous MILP Optimizer & Solar Forecast Pipeline</h3>
                         </div>
 
                         <p class="flagship-desc">
@@ -2345,7 +2493,7 @@
                             </div>
                             <div class="flagship-metric-cell">
                                 <span class="fmc-value">45.1% MAE Drop</span>
-                                <span class="fmc-label">Solar production error reduction vs 24h baseline</span>
+                                <span class="fmc-label">Solar error reduction vs 24h baseline</span>
                             </div>
                             <div class="flagship-metric-cell">
                                 <span class="fmc-value">99.9% Uptime</span>
@@ -2514,7 +2662,7 @@
                     <div class="timeline-card">
                         <div class="timeline-meta-row">
                             <h3 class="timeline-role">Data Science & ML Engineering Intern</h3>
-                            <span class="timeline-period">Mar 2026 – Present</span>
+                            <span class="timeline-period">Mar 2026 – Aug 2026</span>
                         </div>
                         <div class="timeline-inst">
                             <i class="fas fa-map-marker-alt"></i> Faradae · Lyon, France
@@ -2522,9 +2670,32 @@
                         <ul class="timeline-highlights">
                             <li>Engineered a 96-step receding-horizon MILP optimizer (CVXPY/SCIP) running every 60 seconds on GCP Cloud Run for autonomous battery arbitrage.</li>
                             <li>Delivered <strong>€81 net profit in a single summer day</strong> and <strong>€77.69 net savings in the first month</strong> across 3 live commercial battery sites.</li>
-                            <li>Developed physics-guided XGBoost solar production forecasting model with 14 engineered meteorological features, cutting MAE by <strong>45.1%</strong> over the 24h baseline.</li>
+                            <li>Developed physics-guided XGBoost solar forecasting model with 14 engineered meteorological features, cutting MAE by <strong>45.1%</strong> over the 24h baseline.</li>
                             <li>Constructed automated MLOps drift monitoring pipeline with Population Stability Index (PSI) and Kolmogorov-Smirnov tests for automated retraining.</li>
                         </ul>
+
+                        <!-- Executive Endorsement & Appraisal Card -->
+                        <div class="executive-appraisal-card">
+                            <div class="appraisal-header">
+                                <span class="appraisal-badge"><i class="fas fa-award"></i> Executive Endorsement</span>
+                                <span class="appraisal-date"><i class="fas fa-check-circle" style="color:var(--accent-green); margin-right:4px;"></i>Verified Letter</span>
+                            </div>
+                            <p class="appraisal-quote">
+                                “Karthik has a rare ability to bridge the gap between research and real-world deployment. He immediately took ownership of mission-critical projects—developing our predictive optimization engine for industrial battery operations, building complete cloud infrastructure from scratch, and delivering our Agentic Legal RAG system. He is the kind of engineer who can own projects end-to-end and drive meaningful impact.”
+                            </p>
+                            <div class="appraisal-footer">
+                                <div class="appraisal-author">
+                                    <div class="author-avatar-badge"><i class="fas fa-user-tie"></i></div>
+                                    <div>
+                                        <div class="author-name">Thomas Lawson</div>
+                                        <div class="author-title">Chief Executive Officer · Faradae (France)</div>
+                                    </div>
+                                </div>
+                                <a href="recommendation-letter.pdf" target="_blank" rel="noopener noreferrer" class="btn-signed-letter" onclick="trackEvent('recommendation_letter_view', { source: 'experience_appraisal_card' })">
+                                    <i class="fas fa-file-pdf"></i> Read Signed Letter (PDF) <i class="fas fa-external-link-alt" style="font-size:0.7rem; margin-left:3px;"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2596,16 +2767,16 @@
                     I am actively seeking full-time AI/ML Engineering roles where I can deploy mathematical optimization, robust RAG systems, and resilient cloud architectures.
                 </p>
                 <div class="contact-buttons-cluster">
-                    <a href="mailto:karthikrajakandavel@gmail.com" class="btn btn-primary-action">
+                    <a href="mailto:karthikrajakandavel@gmail.com" class="btn btn-primary-action" onclick="trackEvent('contact_click', { method: 'mailto', location: 'footer' })">
                         <i class="fas fa-envelope"></i> Send Email
                     </a>
                     <button class="btn-copy-email" onclick="copyEmailToClipboard()" id="copyEmailBtn">
                         <i class="fas fa-copy"></i> <span id="copyEmailText">karthikrajakandavel@gmail.com</span>
                     </button>
-                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume">
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume" onclick="trackEvent('resume_view', { source: 'footer' })">
                         <i class="fas fa-file-pdf"></i> View & Download Resume
                     </a>
-                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" class="btn btn-outline">
+                    <a href="https://linkedin.com/in/karthik-raja-kandavel-9212aa219" target="_blank" class="btn btn-outline" onclick="trackEvent('outbound_click', { platform: 'linkedin', location: 'footer' })">
                         <i class="fab fa-linkedin-in"></i> LinkedIn
                     </a>
                 </div>
@@ -2655,7 +2826,7 @@
         const projectData = {
             'ems': {
                 kicker: 'Flagship Production System // Model Predictive Control',
-                title: 'MILP Battery Optimizer & Automated Solar Production Forecast Pipeline',
+                title: 'MILP Battery Optimizer & Automated Solar Forecast Pipeline',
                 metrics: [
                     { icon: 'fa-euro-sign', text: '€77.69 saved (Month 1)' },
                     { icon: 'fa-chart-line', text: '45.1% MAE Forecast Drop' },
@@ -2664,7 +2835,7 @@
                 ],
                 desc: `<p><strong>The Problem:</strong> The company's legacy heuristic algorithm was rule-bound and unable to capitalize on dynamic spot-price fluctuations, leading to suboptimal battery charge schedules and missed arbitrage revenue.</p>
                 <p style="margin-top:0.8rem;"><strong>The Engineering Solution:</strong> Formulated and shipped a 96-step receding-horizon Mixed-Integer Linear Program (MILP) using CVXPY and SCIP solvers, running asynchronously every minute on GCP Cloud Run. Implemented binary charge/discharge/grid-lock decision variables with seasonal tariff switching. Built a closed-loop digital twin sandbox for rigorous simulation before hardware deployment.</p>
-                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved €81 net profit in a single summer day and €77.69 net savings in Month 1 under high spot prices. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar production forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
+                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved €81 net profit in a single summer day and €77.69 net savings in Month 1 under high spot prices. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
                 tech: ['Python 3.11', 'CVXPY (SCIP)', 'XGBoost', 'GCP Cloud Run', 'GCP Pub/Sub', 'BigQuery', 'Docker', 'SHAP', 'MLOps Drift Detection'],
                 hasRepo: false,
                 isConfidential: true
@@ -2732,10 +2903,23 @@
             }
         };
 
+        // ── GOOGLE ANALYTICS 4 EVENT TRACKING ──
+        function trackEvent(eventName, eventParams = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, eventParams);
+            }
+        }
+
         // ── MODAL CONTROLLERS ──
         function openModal(projectId) {
             const data = projectData[projectId];
             if (!data) return;
+
+            // Track modal inspection in GA4
+            trackEvent('project_modal_view', {
+                project_id: projectId,
+                project_title: data.title
+            });
 
             document.getElementById('modalKicker').textContent = data.kicker;
             document.getElementById('modalTitle').textContent = data.title;
@@ -2756,9 +2940,10 @@
             // Footer actions
             let footerHtml = '';
             if (data.hasRepo) {
-                footerHtml += `<a href="${data.repoUrl}" target="_blank" class="modal-action-btn github"><i class="fab fa-github"></i> View GitHub Repository</a>`;
+                footerHtml += `<a href="${data.repoUrl}" target="_blank" class="modal-action-btn github" onclick="trackEvent('outbound_click', { destination: 'github_repo', project: '${projectId}' })"><i class="fab fa-github"></i> View GitHub Repository</a>`;
             } else if (data.isConfidential) {
-                footerHtml += `<span class="mono" style="font-size:0.8rem; color:var(--text-muted); display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-shield-alt" style="color:var(--accent-amber);"></i> Proprietary Production Code (Faradae)</span>`;
+                footerHtml += `<a href="recommendation-letter.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-btn" style="background:rgba(77,212,199,0.12); border:1px solid var(--border-cyan); color:var(--accent-cyan);" onclick="trackEvent('recommendation_letter_view', { source: 'ems_modal' })"><i class="fas fa-file-signature"></i> View CEO Endorsement</a>`;
+                footerHtml += `<span class="mono" style="font-size:0.78rem; color:var(--text-muted); display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-shield-alt" style="color:var(--accent-amber);"></i> Proprietary IP (Faradae)</span>`;
             }
             footerHtml += `<button class="modal-action-btn primary" onclick="closeModal()"><i class="fas fa-times"></i> Close Window</button>`;
             document.getElementById('modalFooter').innerHTML = footerHtml;
@@ -2917,6 +3102,10 @@
         function copyEmailToClipboard() {
             const email = "karthikrajakandavel@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
+                trackEvent('copy_email', {
+                    email_address: email,
+                    location: 'contact_section'
+                });
                 const copyText = document.getElementById('copyEmailText');
                 const btn = document.getElementById('copyEmailBtn');
                 copyText.textContent = "Copied to Clipboard! ✓";
