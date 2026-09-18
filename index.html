@@ -2176,7 +2176,7 @@
                     </div>
 
                     <p class="hero-bio reveal-on-scroll">
-                        I design and deploy <strong>production-grade AI and optimization systems</strong> that bridge the gap between algorithmic research and measurable financial ROI. Currently completing my Master's in Data Science at <strong>EURECOM</strong>, I engineer cloud-native <strong>MILP & Model Predictive Control</strong> dispatch engines, robust <strong>Legal RAG pipelines</strong> with zero hallucinations, and automated MLOps drift architectures.
+                        I design and deploy <strong>production-grade AI and optimization systems</strong> that bridge the gap between algorithmic research and measurable financial ROI. As a new grad completing my Master's in Data Science at <strong>EURECOM</strong> (Sept 2026), I engineer cloud-native <strong>MILP & Model Predictive Control</strong> dispatch engines, robust <strong>Legal RAG pipelines</strong> with zero hallucinations, and automated MLOps drift architectures.
                     </p>
                 </div>
 
@@ -2193,14 +2193,14 @@
                         <!-- Stat 1 -->
                         <div class="telemetry-item">
                             <div class="telemetry-item-top">
-                                <div class="telemetry-icon-box amber"><i class="fas fa-euro-sign"></i></div>
+                                <div class="telemetry-icon-box amber"><i class="fas fa-chart-line"></i></div>
                                 <span class="telemetry-tag">MILP Arbitrage</span>
                             </div>
                             <div class="telemetry-metric">
-                                <span class="highlight-amber">€</span><span class="counter" data-target="277.69" data-decimals="2">0.00</span>
+                                <span class="counter" data-target="1.33" data-decimals="2">0.00</span><span class="highlight-amber">x</span>
                             </div>
-                            <div class="telemetry-label">Net Savings Month 1</div>
-                            <div class="telemetry-sub">Proved spot-arbitrage profitability under volatile tariffs.</div>
+                            <div class="telemetry-label">Import Cost Efficiency</div>
+                            <div class="telemetry-sub">25% monthly reduction during the pilot vs. fixed provider tariff.</div>
                         </div>
 
                         <!-- Stat 2 -->
@@ -2488,8 +2488,8 @@
                         <!-- Telemetry Badges -->
                         <div class="flagship-metrics-row">
                             <div class="flagship-metric-cell">
-                                <span class="fmc-value">€277.69 Saved</span>
-                                <span class="fmc-label">Net profit in month 1 under peak tariffs</span>
+                                <span class="fmc-value">1.33x Cost Efficiency</span>
+                                <span class="fmc-label">25% monthly reduction during pilot vs. fixed tariff</span>
                             </div>
                             <div class="flagship-metric-cell">
                                 <span class="fmc-value">45.1% MAE Drop</span>
@@ -2669,7 +2669,7 @@
                         </div>
                         <ul class="timeline-highlights">
                             <li>Engineered a 96-step receding-horizon MILP optimizer (CVXPY/SCIP) running every 60 seconds on GCP Cloud Run for autonomous battery arbitrage.</li>
-                            <li>Delivered <strong>€81 net profit in a single summer day</strong> and <strong>€277.69 net savings in the first month</strong> across 3 live commercial battery sites.</li>
+                            <li>Delivered <strong>1.33x import cost efficiency</strong> (25% monthly reduction during the pilot) vs. fixed provider at a pilot site, monetizing solar export to offset ~73% of fixed costs.</li>
                             <li>Developed physics-guided XGBoost solar forecasting model with 14 engineered meteorological features, cutting MAE by <strong>45.1%</strong> over the 24h baseline.</li>
                             <li>Constructed automated MLOps drift monitoring pipeline with Population Stability Index (PSI) and Kolmogorov-Smirnov tests for automated retraining.</li>
                         </ul>
@@ -2724,7 +2724,7 @@
                     <div class="timeline-card">
                         <div class="timeline-meta-row">
                             <h3 class="timeline-role">M.Sc. Computer Science (Data Science Specialization)</h3>
-                            <span class="timeline-period">Sept 2024 – Present</span>
+                            <span class="timeline-period">Sept 2024 – Sept 2026</span>
                         </div>
                         <div class="timeline-inst">
                             <i class="fas fa-graduation-cap"></i> EURECOM · Sophia Antipolis, France
@@ -2828,14 +2828,14 @@
                 kicker: 'Flagship Production System // Model Predictive Control',
                 title: 'MILP Battery Optimizer & Automated Solar Forecast Pipeline',
                 metrics: [
-                    { icon: 'fa-euro-sign', text: '€277.69 saved (Month 1)' },
-                    { icon: 'fa-chart-line', text: '45.1% MAE Forecast Drop' },
+                    { icon: 'fa-chart-line', text: '1.33x Import Cost Efficiency' },
+                    { icon: 'fa-percent', text: '25% Reduction (pilot)' },
                     { icon: 'fa-shield-alt', text: '99.9% Cloud Reliability' },
                     { icon: 'fa-network-wired', text: '3 Production Sites' }
                 ],
                 desc: `<p><strong>The Problem:</strong> The company's legacy heuristic algorithm was rule-bound and unable to capitalize on dynamic spot-price fluctuations, leading to suboptimal battery charge schedules and missed arbitrage revenue.</p>
                 <p style="margin-top:0.8rem;"><strong>The Engineering Solution:</strong> Formulated and shipped a 96-step receding-horizon Mixed-Integer Linear Program (MILP) using CVXPY and SCIP solvers, running asynchronously every minute on GCP Cloud Run. Implemented binary charge/discharge/grid-lock decision variables with seasonal tariff switching. Built a closed-loop digital twin sandbox for rigorous simulation before hardware deployment.</p>
-                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved €81 net profit in a single summer day and €277.69 net savings in Month 1 under high spot prices. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
+                                <p style="margin-top:0.8rem;"><strong>Business Impact & Reliability:</strong> Achieved 1.33x import cost efficiency (25% monthly reduction during the pilot) vs. fixed provider at a pilot site, monetizing solar export on the spot market to offset ~73% of fixed costs. Engineered multi-tier fallback imputation ensuring zero solver crashes. Developed an XGBoost solar forecast with 14 engineered meteorological features (P5/P50/P95 quantile ensembles), cutting MAE by 45.1% over 24h persistence baselines with continuous PSI/KS drift detection.</p>`,
                 tech: ['Python 3.11', 'CVXPY (SCIP)', 'XGBoost', 'GCP Cloud Run', 'GCP Pub/Sub', 'BigQuery', 'Docker', 'SHAP', 'MLOps Drift Detection'],
                 hasRepo: false,
                 isConfidential: true
